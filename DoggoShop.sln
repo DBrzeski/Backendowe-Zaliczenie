@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{B6C67785-8B93-4AF6-BE57-D291C9A71ADB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doggo", "Doggo\Doggo.csproj", "{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6CF9F5A4-E6C5-4C54-B58C-CC27FBFC5279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doggo.ProductAPI", "Doggo.ProductAPI\Doggo.ProductAPI.csproj", "{45921304-90F2-432E-9FB6-8FD5265D7611}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45921304-90F2-432E-9FB6-8FD5265D7611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45921304-90F2-432E-9FB6-8FD5265D7611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45921304-90F2-432E-9FB6-8FD5265D7611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45921304-90F2-432E-9FB6-8FD5265D7611}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275} = {B6C67785-8B93-4AF6-BE57-D291C9A71ADB}
+		{45921304-90F2-432E-9FB6-8FD5265D7611} = {6CF9F5A4-E6C5-4C54-B58C-CC27FBFC5279}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {096C2B0A-F8C4-4436-BEDB-8CF6F8A3DDA9}
+	EndGlobalSection
+EndGlobal
