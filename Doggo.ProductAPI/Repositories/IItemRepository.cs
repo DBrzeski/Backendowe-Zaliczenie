@@ -7,5 +7,9 @@ namespace Doggo.ProductAPI.Repositories
 {
     interface IItemRepository
     {
+        Task<IEnumerable<ProductDto>> GetItems();
+        Task<ProductDto> GetItemById(int itemId);
+        Task<ProductDto> UpdateItem(ProductDto productDto);
+        Task<bool> DeleteItem(int itemId);
     }
 }
