@@ -17,6 +17,52 @@ namespace Doggo.ProductAPI.DbContexts
 
         public DbSet<Item> Item { get; set; }
 
+        protected override void OnModelCreating (ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
+
+            //modelBuilder.Entity<Item>().HasData(new Item
+            //{
+            //    Id = 1,
+            //    Name = "",
+            //    Price = 0,
+            //    Description = "",
+            //    PictureUrl = "",
+            //});
+            //modelBuilder.Entity<Item>().HasData(new Item
+            //{
+            //    Id = 2,
+            //    Name = "",
+            //    Price = 0,
+            //    Description = "",
+            //    PictureUrl = "",
+            //});
+            //modelBuilder.Entity<Item>().HasData(new Item
+            //{
+            //    Id = 3,
+            //    Name = "",
+            //    Price = 0,
+            //    Description = "",
+            //    PictureUrl = "",
+            //});
+            //modelBuilder.Entity<Item>().HasData(new Item
+            //{
+            //    Id = 4,
+            //    Name = "",
+            //    Price = 0,
+            //    Description = "",
+            //    PictureUrl = "",
+            //});
+            //modelBuilder.Entity<Item>().HasData(new Item
+            //{
+            //    Id = 5,
+            //    Name = "",
+            //    Price = 0,
+            //    Description = "",
+            //    PictureUrl = "",
+            //});
+
+        }
     }
 }
