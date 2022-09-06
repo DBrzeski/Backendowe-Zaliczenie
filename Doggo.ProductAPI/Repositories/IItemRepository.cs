@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Doggo.ProductAPI.Repositories
 {
-    interface IItemRepository
+    public interface IItemRepository
     {
         Task<IEnumerable<ProductDto>> GetItems();
         Task<ProductDto> GetItemById(int itemId);
