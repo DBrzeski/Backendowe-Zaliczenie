@@ -15,7 +15,7 @@ namespace Doggo.Services
         public ResponseDTO responseModel { get; set; }
         public IHttpClientFactory httpClient { get; set; }
 
-        public BaseService(IHttpClientFactory httpClientFactory)
+        public BaseService(IHttpClientFactory httpClient)
         {
             this.responseModel = new ResponseDTO();
             this.httpClient = httpClient;
