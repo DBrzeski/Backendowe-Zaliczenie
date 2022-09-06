@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Doggo.Services.IServices
 {
-    public interface IItemService
+    public interface IItemService : IBaseService
     {
         Task<T> GetAllItemsAsync<T>();
         Task<T> GetAItemByIdAsync<T>(int id);

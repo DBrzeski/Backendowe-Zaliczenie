@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Doggo.ProductAPI.Controllers
 {
-    [Route("api/products")]
+    [Route("api/items")]
     public class ItemController : ControllerBase
     {
         protected ResponseDTO _response;
