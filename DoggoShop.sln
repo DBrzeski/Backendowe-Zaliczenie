@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{B6C67785-8B93-4AF6-BE57-D291C9A71ADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doggo", "Doggo\Doggo.csproj", "{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doggo", "Doggo\Doggo.csproj", "{543D79FF-FAFC-4CB4-97D7-BF2BBC75E275}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6CF9F5A4-E6C5-4C54-B58C-CC27FBFC5279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doggo.ProductAPI", "Doggo.ProductAPI\Doggo.ProductAPI.csproj", "{45921304-90F2-432E-9FB6-8FD5265D7611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doggo.ProductAPI", "Doggo.ProductAPI\Doggo.ProductAPI.csproj", "{45921304-90F2-432E-9FB6-8FD5265D7611}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
