@@ -18,11 +18,11 @@ namespace Doggo.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<Item> list = new();
+            List<ItemDto> list = new();
             var response = await _service.GetAllItemsAsync<ResponseDTO>();
             if(response !=null && response.IsSuccess)
             {
-                list = JsonConvert.DeserializeObject<List<Item>>(Convert.ToString(response.Result));
+                list = JsonConvert.DeserializeObject<List<ItemDto>>(Convert.ToString(response.Result));
             }
 
             return View(list);

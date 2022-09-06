@@ -25,7 +25,7 @@ namespace Doggo.ProductAPI.Controllers
         {
             try
             {
-                IEnumerable<ProductDto> itemDTOs = await _repository.GetItems();
+                IEnumerable<ItemDto> itemDTOs = await _repository.GetItems();
                 _response.Result = itemDTOs;
             }
             catch (Exception ex)
@@ -42,7 +42,7 @@ namespace Doggo.ProductAPI.Controllers
         {
             try
             {
-                ProductDto itemDTOs = await _repository.GetItemById(id);
+                ItemDto itemDTOs = await _repository.GetItemById(id);
                 _response.Result = itemDTOs;
             }
             catch (Exception ex)
@@ -54,11 +54,11 @@ namespace Doggo.ProductAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<Object> Post([FromBody] ProductDto product)
+        public async Task<Object> Post([FromBody] ItemDto product)
         {
             try
             {
-                ProductDto model = await _repository.UpdateItem(product);
+                ItemDto model = await _repository.UpdateItem(product);
                 _response.Result = model;
             }
             catch (Exception ex)
@@ -70,11 +70,11 @@ namespace Doggo.ProductAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<Object> Put([FromBody] ProductDto product)
+        public async Task<Object> Put([FromBody] ItemDto product)
         {
             try
             {
-                ProductDto model = await _repository.UpdateItem(product);
+                ItemDto model = await _repository.UpdateItem(product);
                 _response.Result = model;
             }
             catch (Exception ex)

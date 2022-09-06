@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Doggo.ProductAPI.Models;
+using Doggo.ProductAPI.Models.Dto;
 using Doggo.ProductAPI.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace Doggo.ProductAPI
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
-                config.CreateMap<ProductDto, Item>();
-                config.CreateMap<Item, ProductDto>();
+                config.CreateMap<ItemDto, Item>();
+                config.CreateMap<Item, ItemDto>();
             });
 
             return mappingConfig;

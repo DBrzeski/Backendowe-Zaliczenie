@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Doggo.ProductAPI.Models.DTO
+namespace Doggo.Models
 {
-    public class Item 
+    public class ItemDto
     {
 
         public int Id { get; set; }

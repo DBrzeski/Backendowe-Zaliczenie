@@ -16,7 +16,7 @@ namespace Doggo.Services.IServices
         }
 
 
-        public async Task<T> CreateItemAsnyc<T>(Item item)
+        public async Task<T> CreateItemAsnyc<T>(ItemDto item)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
@@ -57,7 +57,7 @@ namespace Doggo.Services.IServices
             });
         }
 
-        public async Task<T> UpdateItemAsnyc<T>(Item item)
+        public async Task<T> UpdateItemAsnyc<T>(ItemDto item)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {

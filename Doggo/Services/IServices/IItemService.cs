@@ -10,8 +10,8 @@ namespace Doggo.Services.IServices
     {
         Task<T> GetAllItemsAsync<T>();
         Task<T> GetAItemByIdAsync<T>(int id);
-        Task<T> CreateItemAsnyc<T>(Item item);
-        Task<T> UpdateItemAsnyc<T>(Item item);
+        Task<T> CreateItemAsnyc<T>(ItemDto item);
+        Task<T> UpdateItemAsnyc<T>(ItemDto item);
         Task<T> DeleteItemAsnyc<T>(int id);
 
     }
