@@ -20,9 +20,22 @@ namespace Doggo.ProductAPI.Repositories
             _mapper = mapper;
         }
 
-        public Task<bool> DeleteItem(int itemId)
+        public async Task<bool> DeleteItem(int itemId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Item item = await _appdb.Item.FirstOrDefaultAsync(y => y.Id == itemId);
+                if(item == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public async Task<ProductDto> GetItemById(int itemId)
@@ -37,9 +50,19 @@ namespace Doggo.ProductAPI.Repositories
             return _mapper.Map<List<ProductDto>>(items);
         }
 
-        public  Task<ProductDto> UpdateItem(ProductDto productDto)
+        public async Task<ProductDto> UpdateItem(ProductDto productDto)
         {
-            throw new NotImplementedException();
+            Item item = _mapper.Map<ProductDto, Item>(productDto);
+            if(item.Id > 0)
+            {
+                _appdb.Item.Update(item);
+            }
+            else
+            {
+                _appdb.Item.Add(item);
+            }
+            await _appdb.SaveChangesAsync();
+            return _mapper.Map<Item, ProductDto>(item);
         }
     }
 }

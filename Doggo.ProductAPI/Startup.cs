@@ -1,5 +1,6 @@
 using AutoMapper;
 using Doggo.ProductAPI.DbContexts;
+using Doggo.ProductAPI.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,7 +39,7 @@ namespace Doggo.ProductAPI
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //AutoMapper
-
+            services.AddScoped<IItemRepository, ItemRepository>(); ;
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
