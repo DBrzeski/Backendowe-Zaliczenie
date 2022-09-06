@@ -1,3 +1,4 @@
+using AutoMapper;
 using Doggo.ProductAPI.DbContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,15 @@ namespace Doggo.ProductAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
+            //AutoMapper
+
+            IMapper mapper = MappingConfiguration.RegisterMaps().CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            //AutoMapper
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
