@@ -52,5 +52,53 @@ namespace Doggo.ProductAPI.Controllers
             }
             return _response;
         }
+
+        [HttpPost]
+        public async Task<Object> Post([FromBody] ProductDto product)
+        {
+            try
+            {
+                ProductDto model = await _repository.UpdateItem(product);
+                _response.Result = model;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+
+        [HttpPut]
+        public async Task<Object> Put([FromBody] ProductDto product)
+        {
+            try
+            {
+                ProductDto model = await _repository.UpdateItem(product);
+                _response.Result = model;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+
+        [HttpDelete]
+        public async Task<Object> Delete(int id)
+        {
+            try
+            {
+                bool isSuccess = await _repository.DeleteItem(id);
+                _response.Result = isSuccess;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
     }
 }
