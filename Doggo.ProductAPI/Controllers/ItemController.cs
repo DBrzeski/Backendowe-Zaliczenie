@@ -86,6 +86,7 @@ namespace Doggo.ProductAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{id}")]
         public async Task<Object> Delete(int id)
         {
             try

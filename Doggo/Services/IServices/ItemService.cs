@@ -32,7 +32,7 @@ namespace Doggo.Services.IServices
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.DELETE,
-                Url = SD.ItemAPIBase + "/api/items"+id,
+                Url = SD.ItemAPIBase + "/api/items/"+id,
                 AccessToken = ""
             });
         }
@@ -42,7 +42,7 @@ namespace Doggo.Services.IServices
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.GET,
-                Url = SD.ItemAPIBase + "/api/items"+id,
+                Url = SD.ItemAPIBase + "/api/items/"+id,
                 AccessToken = ""
             });
         }

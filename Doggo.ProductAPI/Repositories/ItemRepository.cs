@@ -30,6 +30,8 @@ namespace Doggo.ProductAPI.Repositories
                 {
                     return false;
                 }
+                _appdb.Item.Remove(item);
+                await _appdb.SaveChangesAsync();
                 return true;
             }
             catch (Exception)
@@ -37,6 +39,7 @@ namespace Doggo.ProductAPI.Repositories
 
                 return false;
             }
+            
         }
 
         public async Task<ItemDto> GetItemById(int itemId)
