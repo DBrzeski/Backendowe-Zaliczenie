@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doggo.ProductAPI", "Doggo.ProductAPI\Doggo.ProductAPI.csproj", "{45921304-90F2-432E-9FB6-8FD5265D7611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doggo.Identity", "Services.Identity\Doggo.Identity.csproj", "{DC990C14-58B5-42A0-A289-8DED186318EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.identity", "Services.Identity\Services.identity.csproj", "{DC990C14-58B5-42A0-A289-8DED186318EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
