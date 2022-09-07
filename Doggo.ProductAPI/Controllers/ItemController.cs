@@ -1,5 +1,6 @@
 ﻿using Doggo.ProductAPI.Models.Dto;
 using Doggo.ProductAPI.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Doggo.ProductAPI.Controllers
             _repository = repository;
             this._response = new ResponseDTO();
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<Object> Get()
         {
@@ -37,6 +38,7 @@ namespace Doggo.ProductAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("{id}")]
         public async Task<Object> Get(int id)
         {
@@ -52,8 +54,9 @@ namespace Doggo.ProductAPI.Controllers
             }
             return _response;
         }
-
+        
         [HttpPost]
+        [Authorize]
         public async Task<Object> Post([FromBody] ItemDto product)
         {
             try
@@ -68,8 +71,9 @@ namespace Doggo.ProductAPI.Controllers
             }
             return _response;
         }
-
+        
         [HttpPut]
+        [Authorize]
         public async Task<Object> Put([FromBody] ItemDto product)
         {
             try
@@ -86,6 +90,7 @@ namespace Doggo.ProductAPI.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         [Route("{id}")]
         public async Task<Object> Delete(int id)
         {
