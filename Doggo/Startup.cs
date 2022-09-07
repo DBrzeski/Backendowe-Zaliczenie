@@ -29,7 +29,31 @@ namespace Doggo
 
             services.AddScoped<IItemService, ItemService>();
             services.AddControllersWithViews();
-        }
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
+                .AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
+                .AddOpenIdConnect("oidc", options =>
+                {
+                    options.Authority = Configuration["ServiceUrls:IdentityAPI"];
+                    options.GetClaimsFromUserInfoEndpoint = true;
+                    options.ClientId = "doggo";
+                    options.ClientSecret = "secret";
+                    options.ResponseType = "code";
+
+                    options.TokenValidationParameters.NameClaimType = "name";
+                    options.TokenValidationParameters.RoleClaimType = "role";
+                    options.Scope.Add("doggo");
+                    options.SaveTokens = true;
+
+                });
+
+        
+
+    }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
