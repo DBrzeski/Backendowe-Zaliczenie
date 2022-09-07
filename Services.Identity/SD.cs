@@ -1,4 +1,5 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,21 @@ namespace Doggo.Identity
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = {"read","write", "profile" }
+                },
+                new Client
+                {
+                    ClientId ="doggo",
+                    ClientSecrets = {new Secret("secret".Sha256())},
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RedirectUris = { "http://localhost:44389/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:44389/signout-callback-oidc" },
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "doggo"
+                    }
                 },
 
 
