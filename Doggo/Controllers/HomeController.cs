@@ -1,8 +1,10 @@
 ﻿using Doggo.Models;
+using Doggo.Services.IServices;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,15 +16,25 @@ namespace Doggo.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IItemService _itemService;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger, IItemService itemService)
         {
             _logger = logger;
+            _itemService = itemService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            List<ItemDto> List = new();
+            var response = await _itemService.GetAllItemsAsync<ResponseDTO>("");
+            if(response !=null && response.IsSuccess)
+            {
+                List = JsonConvert.DeserializeObject<List<ItemDto>>(Convert.ToString(response.Result));
+            }
+
+            return View(List);
         }
 
         public IActionResult Privacy()

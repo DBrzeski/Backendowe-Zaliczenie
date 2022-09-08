@@ -20,7 +20,6 @@ namespace Doggo.ProductAPI.Controllers
             _repository = repository;
             this._response = new ResponseDTO();
         }
-        [Authorize]
         [HttpGet]
         public async Task<Object> Get()
         {
@@ -38,7 +37,6 @@ namespace Doggo.ProductAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         [Route("{id}")]
         public async Task<Object> Get(int id)
         {
