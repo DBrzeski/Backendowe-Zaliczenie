@@ -16,55 +16,55 @@ namespace Doggo.Services.IServices
         }
 
 
-        public async Task<T> CreateItemAsnyc<T>(ItemDto item)
+        public async Task<T> CreateItemAsnyc<T>(ItemDto item, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.POST,
                 Data = item,
                 Url = SD.ItemAPIBase + "/api/items",
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> DeleteItemAsnyc<T>(int id)
+        public async Task<T> DeleteItemAsnyc<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.DELETE,
                 Url = SD.ItemAPIBase + "/api/items/"+id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetAItemByIdAsync<T>(int id)
+        public async Task<T> GetAItemByIdAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.GET,
                 Url = SD.ItemAPIBase + "/api/items/"+id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetAllItemsAsync<T>()
+        public async Task<T> GetAllItemsAsync<T>(string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.GET,
                 Url = SD.ItemAPIBase + "/api/items",
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> UpdateItemAsnyc<T>(ItemDto item)
+        public async Task<T> UpdateItemAsnyc<T>(ItemDto item, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = SD.ApiType.PUT,
                 Data = item,
                 Url = SD.ItemAPIBase + "/api/items",
-                AccessToken = ""
+                AccessToken =  token
             });
         }
     }

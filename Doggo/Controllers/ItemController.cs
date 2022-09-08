@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Doggo.Controllers
 {
@@ -19,7 +21,8 @@ namespace Doggo.Controllers
         public async Task<IActionResult> Index()
         {
             List<ItemDto> list = new();
-            var response = await _service.GetAllItemsAsync<ResponseDTO>();
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _service.GetAllItemsAsync<ResponseDTO>(accessToken);
             if (response != null && response.IsSuccess)
             {
                 list = JsonConvert.DeserializeObject<List<ItemDto>>(Convert.ToString(response.Result));
@@ -37,8 +40,9 @@ namespace Doggo.Controllers
         {
             if (ModelState.IsValid)
             {
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
                 List<ItemDto> list = new();
-                var response = await _service.CreateItemAsnyc<ResponseDTO>(model);
+                var response = await _service.CreateItemAsnyc<ResponseDTO>(model, accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     return RedirectToAction(nameof(Index));
@@ -51,8 +55,8 @@ namespace Doggo.Controllers
         {
             if (ModelState.IsValid)
             {
-                
-                var response = await _service.GetAItemByIdAsync<ResponseDTO>(id);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _service.GetAItemByIdAsync<ResponseDTO>(id, accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     ItemDto model = JsonConvert.DeserializeObject<ItemDto>(Convert.ToString(response.Result));
@@ -68,8 +72,9 @@ namespace Doggo.Controllers
         {
             if (ModelState.IsValid)
             {
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
                 List<ItemDto> list = new();
-                var response = await _service.UpdateItemAsnyc<ResponseDTO>(model);
+                var response = await _service.UpdateItemAsnyc<ResponseDTO>(model, accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     return RedirectToAction(nameof(Index));
@@ -78,12 +83,13 @@ namespace Doggo.Controllers
             return View(model);
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)
             {
-
-                var response = await _service.GetAItemByIdAsync<ResponseDTO>(id);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _service.GetAItemByIdAsync<ResponseDTO>(id, accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     ItemDto model = JsonConvert.DeserializeObject<ItemDto>(Convert.ToString(response.Result));
@@ -95,12 +101,14 @@ namespace Doggo.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(ItemDto model)
         {
             if (ModelState.IsValid)
             {
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
                 List<ItemDto> list = new();
-                var response = await _service.DeleteItemAsnyc<ResponseDTO>(model.Id);
+                var response = await _service.DeleteItemAsnyc<ResponseDTO>(model.Id, accessToken);
                 if (response != null && response.IsSuccess)
                 {
                     return RedirectToAction(nameof(Index));
