@@ -1,8 +1,9 @@
 ﻿using Doggo.Identity;
 using Doggo.Identity.DbContext;
-using Doggo.Identity.Models;
 using IdentityModel;
 using Microsoft.AspNetCore.Identity;
+using Services.identity.models;
+using Services.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Services.identity.Initializer
             if (_roleManager.FindByNameAsync(SD.Admin).Result == null)
             {
                 _roleManager.CreateAsync(new IdentityRole(SD.Admin)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(SD.User)).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole(SD.Customer)).GetAwaiter().GetResult();
             }
             else { return; }
 
@@ -38,7 +39,7 @@ namespace Services.identity.Initializer
                 UserName = "admin@doggo.com",
                 Email = "admin@doggo.com",
                 EmailConfirmed = true,
-                PhoneNumber = "000000000",
+                PhoneNumber = "111111111",
                 FirstName = "Damian",
                 LastName = "Brzeski"
             };
@@ -64,13 +65,13 @@ namespace Services.identity.Initializer
             };
 
             _userManager.CreateAsync(customerUser, "zaq1@WSX").GetAwaiter().GetResult();
-            _userManager.AddToRoleAsync(customerUser, SD.User).GetAwaiter().GetResult();
+            _userManager.AddToRoleAsync(customerUser, SD.Customer).GetAwaiter().GetResult();
 
             var temp2 = _userManager.AddClaimsAsync(customerUser, new Claim[] {
                 new Claim(JwtClaimTypes.Name,customerUser.FirstName+" "+ customerUser.LastName),
                 new Claim(JwtClaimTypes.GivenName,customerUser.FirstName),
                 new Claim(JwtClaimTypes.FamilyName,customerUser.LastName),
-                new Claim(JwtClaimTypes.Role,SD.User),
+                new Claim(JwtClaimTypes.Role,SD.Customer),
             }).Result;
         }
     }

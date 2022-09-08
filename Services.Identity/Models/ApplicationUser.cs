@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Doggo.Identity.Models
+namespace Services.identity.models
 {
     public class ApplicationUser : IdentityUser
     {

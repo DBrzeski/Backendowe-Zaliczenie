@@ -42,7 +42,7 @@ namespace Doggo.Controllers
         }
         public IActionResult Logout()
         {
-            return SignOut("Cookies","Iodc");
+            return SignOut("Cookies","oidc");
         }
     }
 }

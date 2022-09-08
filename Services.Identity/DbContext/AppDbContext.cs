@@ -1,6 +1,7 @@
-﻿using Doggo.Identity.Models;
+﻿
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Services.identity.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

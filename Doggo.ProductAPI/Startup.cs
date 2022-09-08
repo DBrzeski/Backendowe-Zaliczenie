@@ -44,7 +44,7 @@ namespace Doggo.ProductAPI
             services.AddControllers();
 
             services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options => {
-                options.Authority = "https://localhost:5003/";
+                options.Authority = "https://localhost:7236/";
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateAudience = false

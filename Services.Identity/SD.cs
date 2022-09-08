@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Doggo.Identity
+namespace Services.Identity
 {
     public static class SD
     {
         public const string Admin = "Admin";
-        public const string User = "User";
+        public const string Customer = "Customer";
 
         public static IEnumerable<IdentityResource> IdentityResources =>
             new List<IdentityResource> {
@@ -33,7 +33,7 @@ namespace Doggo.Identity
                     ClientId ="client",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    AllowedScopes = {"read","write", "profile" }
+                    AllowedScopes = {"read","write","profile" }
                 },
                 new Client
                 {
@@ -50,8 +50,6 @@ namespace Doggo.Identity
                         "doggo"
                     }
                 },
-
-
             };
     }
 }
