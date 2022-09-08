@@ -40,8 +40,8 @@ namespace Services.Identity
                     ClientId ="doggo",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.Code,
-                    RedirectUris = { "https://localhost:44389/signin-oidc" },
-                    PostLogoutRedirectUris = { "https://localhost:44389/signout-callback-oidc" },
+                    RedirectUris = { "https://localhost:5001/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:5001/signout-callback-oidc" },
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
