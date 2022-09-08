@@ -36,8 +36,21 @@ namespace Doggo.Controllers
 
             return View(List);
         }
+        
+        public async Task<IActionResult> Details(int id)
+        {
+            ItemDto model = new();
+            var response = await _itemService.GetAItemByIdAsync<ResponseDTO>(id, "");
+            if (response != null && response.IsSuccess)
+            {
+                model = JsonConvert.DeserializeObject<ItemDto>(Convert.ToString(response.Result));
+            }
+            return View(model);
+        }
 
-        public IActionResult Privacy()
+
+
+            public IActionResult Privacy()
         {
             return View();
         }
