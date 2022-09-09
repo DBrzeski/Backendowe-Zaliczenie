@@ -38,7 +38,6 @@ namespace Doggo.ProductAPI
             IMapper mapper = MappingConfiguration.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
             //AutoMapper
             services.AddScoped<IItemRepository, ItemRepository>(); ;
             services.AddControllers();

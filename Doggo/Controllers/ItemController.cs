@@ -83,7 +83,7 @@ namespace Doggo.Controllers
             return View(model);
 
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)
@@ -100,8 +100,9 @@ namespace Doggo.Controllers
 
         }
         [HttpPost]
+        //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        
         public async Task<IActionResult> Delete(ItemDto model)
         {
             if (ModelState.IsValid)

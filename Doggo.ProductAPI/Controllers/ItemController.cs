@@ -88,7 +88,7 @@ namespace Doggo.ProductAPI.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [Route("{id}")]
         public async Task<Object> Delete(int id)
         {
